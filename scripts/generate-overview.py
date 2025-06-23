@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate a markdown table summarising the owner’s public repositories.
+Generate a markdown table summarising the owner's public repositories.
 
 Columns: repo name → link, primary language, star count, last push (UTC).
 """
@@ -57,7 +57,6 @@ def main() -> None:
           readme.split("<!-- AUTO-GENERATED-REPO-OVERVIEW:END -->")[1]
     Path("README.md").write_text(new, encoding="utf-8")
 
-if __name__ == "__main__":               # rudimentary smoke test
-    if os.getenv("CI"):                  # skip network test in local dev unless TOKEN set
-        main()
+if __name__ == "__main__":
+    main()
 
