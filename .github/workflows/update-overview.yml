@@ -1,27 +1,56 @@
-name: Update repo overview
+name: Update overview
+
 on:
-  schedule: [{ cron: "21 3 * * *" }]   # 03:21 UTC daily
+  schedule:
+    - cron: '21 3 * * *'
   workflow_dispatch:
+
 jobs:
-  build:
+  update-overview:
     runs-on: ubuntu-latest
     env:
       GH_OWNER: ${{ github.repository_owner }}
       GH_TOKEN: ${{ secrets.GH_OVERVIEW_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with: { python-version: '3.12' }
-      - run: pip install requests
-      - run: python generate_overview.py
-      - name: Commit & push if changed
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify prerequisites
+        shell: bash
         run: |
-          git config user.name  "bot"
-          git config user.email "bot@users.noreply.github.com"
-          if ! git diff --quiet; then
-            git add README.md
-            git commit -m "docs(profile): nightly repo overview update"
-            git push
+          set -euo pipefail
+          if [[ -z "${GH_TOKEN:-}" ]]; then
+            echo "❌ Secret GH_OVERVIEW_TOKEN not set"
+            exit 1
           fi
+          if ! grep -q '<!-- AUTO-GENERATED-REPO-OVERVIEW:START -->' README.md; then
+            echo '❌ README markers not found'
+            exit 1
+          fi
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate overview
+        run: python generate_overview.py
+
+      - name: Commit and push changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet README.md; then
+            echo '✅ Overview updated (or no change)'
+            exit 0
+          fi
+          git config user.name 'github-actions'
+          git config user.email 'github-actions@github.com'
+          git add README.md
+          git commit -m 'chore: update overview'
+          git push
+          echo '✅ Overview updated (or no change)'
 
