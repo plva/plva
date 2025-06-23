@@ -1,0 +1,27 @@
+name: Update repo overview
+on:
+  schedule: [{ cron: "21 3 * * *" }]   # 03:21 UTC daily
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GH_OWNER: ${{ github.repository_owner }}
+      GH_TOKEN: ${{ secrets.GH_OVERVIEW_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install requests
+      - run: python generate_overview.py
+      - name: Commit & push if changed
+        run: |
+          git config user.name  "bot"
+          git config user.email "bot@users.noreply.github.com"
+          if ! git diff --quiet; then
+            git add README.md
+            git commit -m "docs(profile): nightly repo overview update"
+            git push
+          fi
+
