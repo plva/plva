@@ -1,9 +1,9 @@
 <!-- AUTO-GENERATED-REPO-OVERVIEW:START -->
 | Repository | Lang | ★ | Last push |
 |-----------|------|---|-----------|
+| [econexyz](https://github.com/plva/econexyz) | Python | 0 | 2025-06-24 |
+| [ai-prompts](https://github.com/plva/ai-prompts) |  | 0 | 2025-06-24 |
 | [plva](https://github.com/plva/plva) | Shell | 0 | 2025-06-23 |
-| [econexyz](https://github.com/plva/econexyz) | Python | 0 | 2025-06-23 |
-| [ai-prompts](https://github.com/plva/ai-prompts) |  | 0 | 2025-06-23 |
 | [blog](https://github.com/plva/blog) |  | 0 | 2025-06-22 |
 | [data-structures](https://github.com/plva/data-structures) | Python | 0 | 2025-06-16 |
 | [pdp-bootstrap](https://github.com/plva/pdp-bootstrap) | Shell | 0 | 2025-06-16 |
