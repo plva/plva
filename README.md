@@ -2,8 +2,8 @@
 | Repository | Lang | ★ | Last push |
 |-----------|------|---|-----------|
 | [econexyz](https://github.com/plva/econexyz) | Python | 0 | 2025-06-25 |
+| [plva](https://github.com/plva/plva) | Shell | 0 | 2025-06-25 |
 | [algorithm-visualize](https://github.com/plva/algorithm-visualize) | HTML | 0 | 2025-06-25 |
-| [plva](https://github.com/plva/plva) | Shell | 0 | 2025-06-24 |
 | [ai-prompts](https://github.com/plva/ai-prompts) |  | 0 | 2025-06-24 |
 | [blog](https://github.com/plva/blog) |  | 0 | 2025-06-22 |
 | [data-structures](https://github.com/plva/data-structures) | Python | 0 | 2025-06-16 |
