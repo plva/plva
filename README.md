@@ -1,9 +1,9 @@
 <!-- AUTO-GENERATED-REPO-OVERVIEW:START -->
 | Repository | Lang | ★ | Last push |
 |-----------|------|---|-----------|
+| [plva](https://github.com/plva/plva) | Shell | 0 | 2025-06-30 |
 | [dotfiles](https://github.com/plva/dotfiles) | Ruby | 0 | 2025-06-30 |
 | [cli-views](https://github.com/plva/cli-views) | Python | 0 | 2025-06-30 |
-| [plva](https://github.com/plva/plva) | Shell | 0 | 2025-06-29 |
 | [econexyz](https://github.com/plva/econexyz) | Python | 0 | 2025-06-25 |
 | [algorithm-visualize](https://github.com/plva/algorithm-visualize) | HTML | 0 | 2025-06-25 |
 | [ai-prompts](https://github.com/plva/ai-prompts) |  | 0 | 2025-06-24 |
